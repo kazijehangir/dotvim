@@ -1,6 +1,9 @@
 " Run Pathogen plugin manager on startup
 execute pathogen#infect()
 
+"start neocomplete
+let g:neocomplete#enable_at_startup = 1
+
 " Basic config commands
 syntax on
 set hidden
