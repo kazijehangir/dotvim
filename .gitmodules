@@ -3,10 +3,14 @@
 	url = https://github.com/flazz/vim-colorschemes.git
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
-	url = http://github.com/scrooloose/nerdtree.git
+	url = https://github.com/scrooloose/nerdtree.git
 [submodule "bundle/nerdcommenter"]
 	path = bundle/nerdcommenter
-	url = http://github.com/scrooloose/nerdcommenter.git
+	url = https://github.com/scrooloose/nerdcommenter.git
 [submodule "bundle/vim-bufkill"]
 	path = bundle/vim-bufkill
-	url = http://github.com/qpkorr/vim-bufkill
+	url = https://github.com/qpkorr/vim-bufkill
+
+[submodule "bundle/vim-airline"]
+	path = bundle/vim-airline
+	url = https://github.com/vim-airline/vim-airline
