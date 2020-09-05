@@ -45,25 +45,26 @@ let mapleader=" "
 " Key Remappings
 
 "map ctrl+n to toggle NERD Tree
-"map <C-n> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
 "map split navigation to be easier
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
 "map ctrl+/ to nerdcommenter toggle comment
 "inoremap <C-_> <C-o>:call NERDComment(0,"toggle")<C-m>
 "nnoremap <C-_> :call NERDComment(0,"toggle")<C-m>
 
-"map <leader>f :NERDTreeFind<CR>
+map <leader>f :NERDTreeFind<CR>
 
 " Plugin specific config
 
 "Open NERDTree automatically when vim starts with no file
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "Close Vim if only NERDTree left
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 "MiniBuffExplorer Navigate with ctrl+arrow keys
 "let g:miniBufExplMapWindowNavArrows = 1
