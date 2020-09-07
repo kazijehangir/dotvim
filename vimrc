@@ -1,9 +1,12 @@
 "Dont need vi compatibility.
 set nocompatible
 
+"-------------------------------------------------
+" Google Specific Plugins
+" ________________________________________________
 
-"Glug codefmt
-"Glug codefmt-google
+Glug codefmt
+Glug codefmt-google
 augroup autoformat_settings
   autocmd FileType borg,gcl,patchpanel AutoFormatBuffer gclfmt
   autocmd FileType bzl AutoFormatBuffer buildifier
@@ -18,31 +21,43 @@ augroup autoformat_settings
   autocmd FileType textpb AutoFormatBuffer text-proto-format
   autocmd FileType html,css,json AutoFormatBuffer js-beautify
 augroup END
-"Glug piper plugin[mappings]
-"Glug relatedfiles plugin[mappings]
-"Glug add_usings plugin[mappings]
-"Glug youcompleteme-google
+Glug piper plugin[mappings]
+Glug relatedfiles plugin[mappings]
+Glug add_usings plugin[mappings]
+Glug youcompleteme-google
 
+"-------------------------------------------------
+
+"-------------------------------------------------
+" External Plugins Setup
+"-------------------------------------------------
 
 " Run Pathogen plugin manager on startup
 "execute pathogen#infect()
 
-":colorscheme flattown
+"-------------------------------------------------
+
+"-------------------------------------------------
+" Plugin specific config
+"-------------------------------------------------
+
 "start neocomplete
 ""let g:neocomplete#enable_at_startup = 1
-" Basic config commands
-syntax on
-"set hidden
-"indent wth 4 spaces instead of tab
-"set tabstop=4 shiftwidth=4 
-set expandtab smarttab
 
-"more natural splitting behavior
-set splitbelow
-set splitright
-let mapleader=" " 
+"Open NERDTree automatically when vim starts with no file
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"Close Vim if only NERDTree left
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+"MiniBuffExplorer Navigate with ctrl+arrow keys
+"let g:miniBufExplMapWindowNavArrows = 1
+
+"------------------------------------------------
+
+"-------------------------------------------------
 " Key Remappings
+"-------------------------------------------------
 
 "map ctrl+n to toggle NERD Tree
 map <C-n> :NERDTreeToggle<CR>
@@ -58,15 +73,26 @@ nnoremap <C-H> <C-W><C-H>
 
 map <leader>f :NERDTreeFind<CR>
 
-" Plugin specific config
+let mapleader=" " 
 
-"Open NERDTree automatically when vim starts with no file
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-"Close Vim if only NERDTree left
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"-------------------------------------------------
 
-"MiniBuffExplorer Navigate with ctrl+arrow keys
-"let g:miniBufExplMapWindowNavArrows = 1
+"-------------------------------------------------
+" General Config
+"-------------------------------------------------
+
+":colorscheme flattown
+" Basic config commands
+syntax on
+"set hidden
+"indent wth 4 spaces instead of tab
+"set tabstop=4 shiftwidth=4 
+set expandtab smarttab
+
+"more natural splitting behavior
+set splitbelow
+set splitright
+
+"-------------------------------------------------
 
 filetype plugin indent on
