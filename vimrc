@@ -5,6 +5,8 @@ set nocompatible
 " Google Specific Plugins
 " ________________________________________________
 
+source /usr/share/vim/google/google.vim
+
 Glug codefmt
 Glug codefmt-google
 augroup autoformat_settings
@@ -32,8 +34,21 @@ Glug youcompleteme-google
 " External Plugins Setup
 "-------------------------------------------------
 
-" Run Pathogen plugin manager on startup
-"execute pathogen#infect()
+" Verfy Vim-Plug is installed
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Specify a directory for plugins
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+
+Plug 'scrooloose/nerdtree'
+
+" Initialize plugin system
+call plug#end()
 
 "-------------------------------------------------
 
@@ -41,16 +56,16 @@ Glug youcompleteme-google
 " Plugin specific config
 "-------------------------------------------------
 
-"start neocomplete
+" Start neocomplete
 ""let g:neocomplete#enable_at_startup = 1
 
-"Open NERDTree automatically when vim starts with no file
+" Open NERDTree automatically when vim starts with no file
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "Close Vim if only NERDTree left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-"MiniBuffExplorer Navigate with ctrl+arrow keys
+" MiniBuffExplorer Navigate with ctrl+arrow keys
 "let g:miniBufExplMapWindowNavArrows = 1
 
 "------------------------------------------------
@@ -59,8 +74,14 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Key Remappings
 "-------------------------------------------------
 
-"map ctrl+n to toggle NERD Tree
+let mapleader=" " 
+
+" Map ctrl+f to toggle Nerd Finder
+map <leader>f :NERDTreeFind<CR>
+
+" Map ctrl+n to toggle Nerd Tree
 map <C-n> :NERDTreeToggle<CR>
+
 "map split navigation to be easier
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -70,10 +91,6 @@ nnoremap <C-H> <C-W><C-H>
 "map ctrl+/ to nerdcommenter toggle comment
 "inoremap <C-_> <C-o>:call NERDComment(0,"toggle")<C-m>
 "nnoremap <C-_> :call NERDComment(0,"toggle")<C-m>
-
-map <leader>f :NERDTreeFind<CR>
-
-let mapleader=" " 
 
 "-------------------------------------------------
 
