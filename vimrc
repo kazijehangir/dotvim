@@ -5,12 +5,18 @@ set nocompatible
 " Google Specific Config
 " ________________________________________________
 
-source google.vimrc
+let g:is_corp = hostname() =~# 'googlers.com' || hostname() =~# 'google.com'
+
+if g:is_corp
+  source google.vimrc
+else
+  source external.vimrc
+endif
+
+"------------------------------------------------
 
 "-------------------------------------------------
-
-"-------------------------------------------------
-" Plugins Setup
+" General Plugins Setup
 "-------------------------------------------------
 
 " Verfy Vim-Plug is installed
