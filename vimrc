@@ -2,10 +2,10 @@
 set nocompatible
 
 "-------------------------------------------------
-" Google Specific Config
+" Google | External Specific Config 
 " ________________________________________________
 
-let g:is_corp = hostname() =~# 'googlers.com' || hostname() =~# 'google.com'
+let g:is_corp = (hostname() =~# 'googlers.com' || hostname() =~# 'google.com') && !(hostname() =~# 'roam.corp.google.com')
 
 if g:is_corp
   source google.vimrc
