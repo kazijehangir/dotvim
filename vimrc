@@ -19,18 +19,12 @@ endif
 " General Plugins Setup
 "-------------------------------------------------
 
-" Verfy Vim-Plug is installed
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
 " Specify a directory for plugins
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdcommenter'
 
 " Initialize plugin system
 call plug#end()
@@ -67,15 +61,16 @@ map <leader>f :NERDTreeFind<CR>
 " Map ctrl+n to toggle Nerd Tree
 map <C-n> :NERDTreeToggle<CR>
 
-"map split navigation to be easier
+" Map split navigation to be easier
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-"map ctrl+/ to nerdcommenter toggle comment
-"inoremap <C-_> <C-o>:call NERDComment(0,"toggle")<C-m>
-"nnoremap <C-_> :call NERDComment(0,"toggle")<C-m>
+"TODO(): Fix this, could not get it to work, using <space>c<space> to toggle comments.
+" Map ctrl+/ to nerdcommenter toggle comment
+"map <C-_>   <Plug>NERDCommenterToggle
+"vmap <C-_>   <Plug>NERDCommenterToggle<CR>gv
 
 "-------------------------------------------------
 
