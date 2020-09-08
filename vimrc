@@ -1,6 +1,12 @@
 "Dont need vi compatibility.
 set nocompatible
 
+" Specify a directory for plugins
+" - Avoid using standard Vim directory names like 'plugin'
+" - Calling this in the beginning to be able to invoke plugins in
+"   external.vimrc.
+call plug#begin('~/.vim/plugged')
+
 "-------------------------------------------------
 " Google | External Specific Config 
 " ________________________________________________
@@ -19,12 +25,7 @@ endif
 " General Plugins Setup
 "-------------------------------------------------
 
-" Specify a directory for plugins
-" - Avoid using standard Vim directory names like 'plugin'
-call plug#begin('~/.vim/plugged')
-
 Plug 'scrooloose/nerdtree'
-Plug 'preservim/nerdcommenter'
 
 " Initialize plugin system
 call plug#end()
