@@ -28,19 +28,17 @@ Repository for synchronizing Vim plugins and configuration across machines.
 ```
   - Add these contents to the file:
 ```
-     set runtimepath^=~/.vim runtimepath+=~/.vim/after
-     let &packpath = &runtimepath
-     source ~/.vimrc  
+  set runtimepath^=~/.vim runtimepath+=~/.vim/after
+  let &packpath = &runtimepath
+  source ~/.vimrc  
 ```
 
 ## Install Vim-Plug
   - Run this:
 ```
-     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
   - [N-Optional] Run this too:
 ```  
-  sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 ```
