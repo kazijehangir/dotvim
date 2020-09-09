@@ -27,6 +27,9 @@ endif
 
 Plug 'scrooloose/nerdtree'
 
+Plug 'preservim/nerdcommenter'
+
+
 " Initialize plugin system
 call plug#end()
 
@@ -84,12 +87,19 @@ nnoremap <C-H> <C-W><C-H>
 syntax on
 "set hidden
 "indent wth 4 spaces instead of tab
-"set tabstop=4 shiftwidth=4 
+set tabstop=2 shiftwidth=2
 set expandtab smarttab
 
 "more natural splitting behavior
 set splitbelow
 set splitright
+
+"Show line numbers
+set number
+
+" Reload the vimrc
+nnoremap <leader>RR :source ~/.vimrc<CR>
+
 
 "-------------------------------------------------
 

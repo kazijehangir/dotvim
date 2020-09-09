@@ -21,4 +21,4 @@ Glug piper plugin[mappings]
 Glug relatedfiles plugin[mappings]
 Glug add_usings plugin[mappings]
 Glug youcompleteme-google
-
+Glug syntastic-google
